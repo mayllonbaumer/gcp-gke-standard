@@ -39,7 +39,7 @@ jobs:
       run: terraform init
   
     - name: Terraform Plan 
-      run: terraform plan -var="project_id=${{vars.project_id}}" -var-file="environments/${{github.environment}}/environment.tfvars" -out=tfplan.out
+      run: terraform plan -var="project_id=${{vars.PROJECT_ID}}" -var-file="environments/${{github.environment}}/environment.tfvars" -out=tfplan.out
 
     - name: Archive Terraform Plan
       uses: actions/upload-artifact@v4
@@ -48,6 +48,7 @@ jobs:
         path: tfplan.out
 
   deployment:
+    needs: generate_plan
     runs-on: ubuntu-latest
     environment: ${{github.event.inputs.environment || 'development'}}
 
