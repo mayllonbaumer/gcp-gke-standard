@@ -39,7 +39,7 @@ jobs:
       run: terraform init
   
     - name: Terraform Plan 
-      run: terraform plan -var="project_id=${{vars.PROJECT_ID}}" -var-file="./environments/$environment/environment.tfvars" -out=tfplan.out
+      run: terraform plan -var="project_id=${{vars.PROJECT_ID}}" -var-file="environments/$environment/environment.tfvars" -out=tfplan.out
 
     - name: Archive Terraform Plan
       uses: actions/upload-artifact@v4
