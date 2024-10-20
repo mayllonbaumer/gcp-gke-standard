@@ -28,5 +28,5 @@ resource "google_project_iam_member" "service_account_user" {
 resource "google_project_iam_member" "deployment_service_account_user" {
   project = var.project_id
   role    = "roles/iam.serviceAccountUser"
-  member  = "serviceAccount:deployment@${var.project_id}.iam.gserviceaccount.com"
+  member  = "serviceAccount:deploy@${var.project_id}.iam.gserviceaccount.com"
 }
