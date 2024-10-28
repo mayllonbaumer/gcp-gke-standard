@@ -36,7 +36,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@v2
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -backend-config="environments/$environment/backend.tfvars"
   
     - name: Terraform Plan 
       run: terraform plan -var="project_id=${{vars.PROJECT_ID}}" -var-file="environments/$environment/environment.tfvars" -out=tfplan.out
