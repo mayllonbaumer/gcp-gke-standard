@@ -13,7 +13,7 @@ variable "name" {
 variable "number_of_nodes" {
   description = "The initial number of nodes per cluster"
   type        = number
-  default     = 3
+  default     = 2
 }
 variable "network" {
   description = "Network where the cluster will be allocated"
