@@ -19,7 +19,7 @@ resource "google_container_node_pool" "primary_nodes" {
   cluster  = google_container_cluster.primary.name
   location = google_container_cluster.primary.location
 
-  node_count = 3
+  node_count = 2
 
   node_config {
     service_account = google_service_account.gke_service_account.email
